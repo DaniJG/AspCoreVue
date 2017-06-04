@@ -1,0 +1,23 @@
+<template>
+    <div>
+        <h1>Things I need to do</h1>
+
+        <ul v-if="todos.length">
+            <li v-for="item in todos">
+                {{item.description}} - <button v-on:click="completeItem(item)" class="btn btn-link">completed</button>
+            </li>
+        </ul>
+        <p v-else class="text-success">Nothing to do right now!</p>
+
+        <form>
+            <div class="row">
+                <div class="col-xs-6">
+                    <input v-model="newItemDescription" class="form-control" placeholder="I just remembered that I have to...">
+                </div>
+            <button v-on:click="addItem($event)" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </div>
+</template>
+
+<script src="./todos.ts"></script>
